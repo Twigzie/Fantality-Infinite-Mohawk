@@ -1,2 +1,2 @@
-# Fantality-Infinite-Mohawk
-A texture extractor for Halo Infinite
+# Fantality-Halo-Mohawk
+ A bitmap extractor for Halo Infinite
