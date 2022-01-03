@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Mohawk.Classes.ConsoleHelpers;
-
-namespace Mohawk.Classes.Commands {
+﻿namespace Mohawk.Classes.Components {
 
     public class Command {
         public string Name { get; set; }
@@ -14,10 +7,10 @@ namespace Mohawk.Classes.Commands {
             get {
                 switch (Name.ToLower()) {
                     case "help":
-                    case "home":
                     case "clear":
                     case "about":
                     case "github":
+                    case "updates":
                     case "browse":
                     case "extract": return true;
                     default:
@@ -26,7 +19,6 @@ namespace Mohawk.Classes.Commands {
             }
         }
         public Command(string source) {
-
             var args = source.Split(' ');
             Name = args[0].ToLower();
             Value = (args.Length <= 1)
@@ -34,7 +26,6 @@ namespace Mohawk.Classes.Commands {
                 : (args.Length >= 2)
                     ? source.Substring(Name.Length + 1)
                     : args[1];
-
         }
     }
 

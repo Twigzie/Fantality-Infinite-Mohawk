@@ -45,18 +45,29 @@
     <StartupObject>Mohawk.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Magick.NET-Q16-AnyCPU, Version=8.5.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\Magick.NET-Q16-AnyCPU.8.5.0\lib\net20\Magick.NET-Q16-AnyCPU.dll</HintPath>
+    </Reference>
+    <Reference Include="Magick.NET.Core, Version=8.5.0.0, Culture=neutral, PublicKeyToken=2004825badfa91ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\Magick.NET.Core.8.5.0\lib\net20\Magick.NET.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Commands\Command.cs" />
+    <Compile Include="Classes\Components\Bitmap.cs" />
+    <Compile Include="Classes\Components\Command.cs" />
+    <Compile Include="Classes\Components\BitmapComparer.cs" />
     <Compile Include="Classes\Enums.cs" />
+    <Compile Include="Classes\Extentions.cs" />
     <Compile Include="Classes\Helpers.cs" />
+    <Compile Include="Classes\IO\BitmapReader.cs" />
     <Compile Include="Classes\Updates\Update.cs" />
     <Compile Include="Config\VersionIncrement.cs">
       <AutoGen>True</AutoGen>
@@ -68,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Config\App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\VersionIncrement.tt">

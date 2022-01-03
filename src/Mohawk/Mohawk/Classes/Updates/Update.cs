@@ -14,9 +14,8 @@ namespace Mohawk.Classes.Updates {
         #region Ignored
 
         [IgnoreDataMember]
-        public Version Current {
-            get => Assembly.GetExecutingAssembly().GetName().Version;
-        }
+        public Version Current => Assembly.GetExecutingAssembly().GetName().Version;
+
         [IgnoreDataMember]
         public bool IsAvailable {
             get {
@@ -27,10 +26,6 @@ namespace Mohawk.Classes.Updates {
         }
 
         #endregion
-
-        public UpdateVersion() {
-
-        }
 
         [DataMember(Name = "html_url", IsRequired = true, Order = 0)]
         public string Url { get; set; }
@@ -46,7 +41,7 @@ namespace Mohawk.Classes.Updates {
         public static async Task<UpdateVersion> GetUpdates() {
             try {
                 using (var client = new WebClient()) {
-                    client.Headers.Add(HttpRequestHeader.UserAgent, $"MOHAWK/{Assembly.GetExecutingAssembly().GetName().Version.ToString()} (release; PC)");
+                    client.Headers.Add(HttpRequestHeader.UserAgent, $"MOHAWK/{Assembly.GetExecutingAssembly().GetName().Version} (release; PC)");
                     using (var stream = new MemoryStream(await client.DownloadDataTaskAsync(new Uri("https://api.github.com/repos/Twigzie/Fantality-Halo-Mohawk/releases/latest")))) {
                         var data = new DataContractJsonSerializer(typeof(UpdateVersion));
                         return (UpdateVersion)data.ReadObject(stream);
